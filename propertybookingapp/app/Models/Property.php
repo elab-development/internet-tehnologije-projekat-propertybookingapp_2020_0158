@@ -18,6 +18,7 @@ class Property extends Model
         'kvadratura',
         'tipGradnje',
         'brojSoba',
+        'slika',
         'property_type_id'
     ];
 
