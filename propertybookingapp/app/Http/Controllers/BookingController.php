@@ -59,9 +59,9 @@ class BookingController extends Controller
     {
         // Validacija za polja koja se unose preko requesta
         $validator = Validator::make($request->all(), [
-            'nacinPlacanja' => 'sometimes|in:Gotovina,Kartica,Cekovi',
-            'izvrsenoPlacanje' => 'sometimes|in:DA,NE',
-            'brojDana' => 'sometimes|integer|min:1|max:30',
+            'nacinPlacanja' => 'required|in:Gotovina,Kartica,Cekovi',
+            'izvrsenoPlacanje' => 'required|in:DA,NE',
+            'brojDana' => 'required|integer|min:1|max:30',
         ]);
 
         // Provera validacije

@@ -7,6 +7,10 @@ use App\Models\Property;
 use App\Http\Resources\PropertyResource;
 use App\Models\PropertyType;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 
 class PropertyController extends Controller
 {
@@ -22,6 +26,55 @@ class PropertyController extends Controller
         $kupovina = Property::findOrFail($id);
         return new PropertyResource($kupovina);
     }
+
+    public function store(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'adresa' => 'required',
+            'grad' => 'required',
+            'cena' => 'required',
+            'kvadratura' => 'required',
+            'tipGradnje' => 'required|in:Novogradnja,Starogradnja,U toku gradnje',
+            'brojSoba' => 'required',
+            'slika' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'property_type_id' => [
+                'required', //  u rasponu od 1 do 8
+                function ($attribute, $value, $fail) {
+                    // Provera postojanja tipa nekretnine sa datim ID-em
+                    $exists = PropertyType::where('id', $value)->exists();
+                    if (!$exists) {
+                        $fail('Selected property type does not exist.');
+                    }
+                },
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+             }
+        //ime za sliku
+        $imageName = Str::random(15).".".$request->slika->getClientOriginalExtension();
+
+        $property = new Property();
+        $property->adresa = $request->adresa;
+        $property->grad = $request->grad;
+        $property->kvadratura = $request->kvadratura;
+        $property->tipGradnje = $request->tipGradnje;
+        $property->brojSoba = $request->brojSoba;
+        $property->slika = $imageName;
+        $property->cena = $request->cena;
+        $property->property_type_id = $request->property_type_id;
+        $property->save();
+
+        //slika koja je okacena cuva se u storage
+        Storage::disk('public')->put($imageName, file_get_contents($request->slika));
+
+        return response()->json(['Created new property with image upload.',
+            new PropertyResource($property)]);
+     }
+
+
 
     //vrati properties koje imaju veci ili jednaki broj soba od unesenog
     public function getPropertiesByNumberOfRooms($brojSoba)
@@ -70,6 +123,33 @@ class PropertyController extends Controller
             'properties' => PropertyResource::collection($paginatedSearchResults)
         ]);
     }
+
+
+    //brisanje property-a sa brisanjem i slike
+     public function destroy($id)
+     {
+          // Detail 
+          $property = Property::find($id);
+
+          if(!$property){
+            return response()->json([
+               'message'=>'Property not found.'
+  
+            ],404);
+          }
+  
+          $storage = Storage::disk('public');
+          if($storage->exists($property->slika))
+              $storage->delete($property->slika);
+  
+          // Brisanje Nekretnine
+          $property->delete();
+  
+          // Return Json Response
+          return response()->json([
+              'message' => "Property deleted successfully."
+          ],200);
+     }
 
 
 

@@ -36,3 +36,8 @@ Route::put('/propertytypes/{id}', [PropertyTypeController::class, 'update']);
 
 Route::get('propertytypes', [PropertyTypeController::class, 'index']); 
 
+Route::post('/properties', [PropertyController::class, 'store']);
+
+Route::delete('/properties/{id}', [PropertyController::class, 'destroy']);
+
+
