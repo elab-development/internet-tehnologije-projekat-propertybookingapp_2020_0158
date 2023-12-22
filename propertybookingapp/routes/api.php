@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\PropertyTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,19 @@ use App\Http\Controllers\PropertyController;
 
 Route::resource('bookings', BookingController::class);
 
-Route::get('property', [PropertyController::class, 'index']); 
+//vraca sve properties koje su datog tipa
+Route::get('properties/type', [PropertyController::class, 'getPropertiesByPropertyType']); 
 
-Route::get('property/{id}', [PropertyController::class, 'show']); 
+//vraca sve properties koje imaju preko tog broja soba - filtriranje
+Route::get('/properties/brojsoba/{brojSoba}', [PropertyController::class, 
+     'getPropertiesByNumberOfRooms']);
+
+//kreira nov property
+
+
+Route::patch('/agents/{id}', [AgentController::class, 'updateAddress']);
+
+Route::put('/propertytypes/{id}', [PropertyTypeController::class, 'update']);
+
+Route::get('propertytypes', [PropertyTypeController::class, 'index']); 
+

@@ -24,7 +24,7 @@ class PropertyFactory extends Factory
             'kvadratura' => $this->faker->numberBetween($min = 20, $max = 400),
             'tipGradnje' => $this->faker->randomElement($array= 
                 array('Novogradnja','Starogradnja','U toku gradnje')),
-            'brojSoba' => $this->faker->numberBetween($min = 30000, $max = 600000),
+            'brojSoba' => $this->faker->numberBetween($min = 1, $max = 7),
             'slika' => $this->faker->imageUrl,
             'property_type_id' => PropertyType::factory(),
 
