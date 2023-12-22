@@ -18,12 +18,12 @@ class Booking extends Model
         'agent_id'
     ];
 
-    public function agents()
+    public function agent()
     {
         return $this->belongsTo(Agent::class);
     }
 
-    public function properties()
+    public function property()
     {
         return $this->belongsTo(Property::class);
     }

@@ -27,7 +27,7 @@ class Property extends Model
         return $this->hasMany(Booking::class);
     }
 
-    public function propertyTypes()
+    public function property_type()
     {
         return $this->belongsTo(PropertyType::class);
     }
