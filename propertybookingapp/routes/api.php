@@ -16,9 +16,7 @@ use App\Http\Controllers\PropertyController;
 |
 */
 
-Route::get('booking', [BookingController::class, 'index']); 
-
-Route::get('booking/{id}', [BookingController::class, 'show']); 
+Route::resource('bookings', BookingController::class);
 
 Route::get('property', [PropertyController::class, 'index']); 
 
