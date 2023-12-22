@@ -18,7 +18,8 @@ class PropertyTypeFactory extends Factory
     {
         return [
             'nazivTipa' => $this->faker->randomElement($array= 
-                array('Stan','Kuca','Vikendica','Salon','Poslovni prostor','Plac','Penthouse')),
+                array('Stan','Kuca','Vikendica','Salon','Poslovni prostor','Plac','Penthouse'
+            ,'Vila','Zemljiste')),
         ];
     }
 }

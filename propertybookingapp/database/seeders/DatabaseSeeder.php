@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+Use Database\Seeders\PropertySeeder;
+Use Database\Seeders\AgentSeeder;
+Use Database\Seeders\PropertyTypeSeeder;
+Use Database\Seeders\BookingSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            AgentSeeder::class,
+            PropertyTypeSeeder::class,
+            PropertySeeder::class,
+            BookingSeeder::class,
+        ]);
     }
 }

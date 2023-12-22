@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('properties', function (Blueprint $table) {
-            $table->foreignId('property_type_id')->nullable()->references('id')->on('propertytypes')->onDelete('set null');
+            $table->foreignId('property_type_id')->nullable()->references('id')->on('property_types')->onDelete('set null');
         });
     }
 

@@ -18,8 +18,7 @@ class AgentFactory extends Factory
     public function definition(): array
     {
         return [
-            'imePrezime' => $this->faker->name(),
-            'grad' => $this->faker->city(),
+            'ime' => $this->faker->name(),
             'adresa' => $this->faker->streetAddress(),
             'telefon' => $this->faker->phoneNumber(),
             'godineIskustva' => $this->faker->numberBetween($min = 1, $max = 30),
