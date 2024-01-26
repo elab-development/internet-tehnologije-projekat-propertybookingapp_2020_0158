@@ -1,0 +1,65 @@
+
+  
+  .agents-container {
+    background-image: url('https://www.zillowstatic.com/bedrock/app/uploads/sites/42/GettyImages-1179026126_2020_1140-2650b9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+    padding-top: 60px;
+    align-items: center;
+    padding-bottom: 70px;
+  }
+  
+  .agents-title {
+    color: #865b33;
+    font-size: 27px;
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: #D1C8B8;
+    width: 50%;
+    margin-left: 450px;
+    border-radius: 8px;
+    opacity: 90%;
+  }
+
+
+  
+  .agents-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0;
+    
+    
+  }
+  
+  .agent-card {
+    background-color: #D1C8B8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 40%; 
+    box-sizing: border-box;
+  }
+  
+  .agent-name {
+    color: #B37840;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .agent-info {
+    color: #000;
+  }
+  
+  .agent-info p {
+    margin: 4px 0;
+  }
+  
+  .agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    opacity: 85%;
+  }
