@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './WelcomePage.css';
+import Navbar from '../Navbar/Navbar';
 
 const WelcomePage = () => {
   const [countries, setCountries] = useState([]);
@@ -19,6 +20,8 @@ const WelcomePage = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className="welcome-page">
       <div className='welcome-text'>
       <h1>Dobrodošli na Property Booking</h1>
@@ -39,6 +42,7 @@ const WelcomePage = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 
