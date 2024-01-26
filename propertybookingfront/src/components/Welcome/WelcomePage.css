@@ -1,0 +1,92 @@
+.welcome-page {
+    text-align: center;
+    background-image: url("https://img-aws.ehowcdn.com/1280x/www.onlyinyourstate.com/wp-content/uploads/2017/08/aer2.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 40px;
+}
+  
+  .welcome-page h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-page p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .welcome-text {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #D1C8B8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s ease; 
+    color: #69533f;
+    border-radius: 10px; 
+  }
+  
+  .welcome-text:hover {
+    background-color: #E6E3E1; 
+  }
+  
+  .country-list ul {
+    list-style: none;
+    padding: 0;
+    padding-bottom: 40px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  .country-list strong {
+    color: #81664e;
+  }
+  
+  .country-list li  {
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(18% - 20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    box-sizing: border-box;
+    background-color: #D1C8B8;
+    color: #69533f;
+    opacity: 75%;
+  }
+
+  .country-list li:hover  {
+    background-color: #D1C8B8;
+    color: #69533f;
+    opacity: 85%;
+  }
+  
+  .country-list h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .country-list h3 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .country-list img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 10px;
+  }
