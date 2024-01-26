@@ -15,11 +15,11 @@ class AgentResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ID -> ' => $this->resource->id,
-            'Agent-> ' => $this->resource->ime,
-            'Adresa agenta -> ' => $this->resource->adresa,
-            'Telefon -> ' => $this->resource->telefon,
-            'Godine iskustva u poslu -> ' => $this->resource->godineIskustva,
+            'id' => $this->resource->id,
+            'ime' => $this->resource->ime,
+            'adresa' => $this->resource->adresa,
+            'telefon' => $this->resource->telefon,
+            'godineIskustva' => $this->resource->godineIskustva,
         ];
     }
 }

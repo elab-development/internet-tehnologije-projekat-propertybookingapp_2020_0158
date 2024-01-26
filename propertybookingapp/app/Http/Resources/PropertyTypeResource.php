@@ -15,8 +15,8 @@ class PropertyTypeResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ID -> ' => $this->resource->id,
-            'Naziv tipa objekta-> ' => $this->resource->nazivTipa
+            'id' => $this->resource->id,
+            'nazivTipa' => $this->resource->nazivTipa
         ];
     }
 }

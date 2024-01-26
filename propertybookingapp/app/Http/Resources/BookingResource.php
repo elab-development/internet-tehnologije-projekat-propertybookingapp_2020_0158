@@ -16,13 +16,13 @@ class BookingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ID -> ' => $this->resource->id,
-            'Nacin placanja -> ' => $this->resource->nacinPlacanja,
-            'Izvrseno placanje -> ' => $this->resource->izvrsenoPlacanje,
-            'Datum placanja -> ' => $this->resource->datumPlacanja,
-            'Broj dana na koliko se rezervise -> ' => $this->resource->brojDana,
-            'Koja nekretnina -> ' => new PropertyResource($this->resource->property),
-            'Koji agent je izdao nekretninu -> ' => new AgentResource($this->resource->agent),
+            'id' => $this->resource->id,
+            'nacinPlacanja' => $this->resource->nacinPlacanja,
+            'izvrsenoPlacanje' => $this->resource->izvrsenoPlacanje,
+            'datumPlacanja' => $this->resource->datumPlacanja,
+            'brojDana' => $this->resource->brojDana,
+            'property' => new PropertyResource($this->resource->property),
+            'agent' => new AgentResource($this->resource->agent),
         ];
     }
 }

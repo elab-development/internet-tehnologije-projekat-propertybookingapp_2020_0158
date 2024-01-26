@@ -16,14 +16,14 @@ class PropertyResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ID -> ' => $this->resource->id,
-            'Adresa nekretnine -> ' => $this->resource->adresa,
-            'Grad -> ' => $this->resource->grad,
-            'Cena nekretnine u EUR -> ' => $this->resource->cena,
-            'Kvadratura u m2 -> ' => $this->resource->kvadratura,
-            'Broj soba -> ' => $this->resource->brojSoba,
-            'Slika -> ' => $this->resource->slika,
-            'Tip nekretnine -> ' => new PropertyTypeResource($this->resource->property_type),
+            'id' => $this->resource->id,
+            'adresa' => $this->resource->adresa,
+            'grad' => $this->resource->grad,
+            'cena' => $this->resource->cena,
+            'kvadratura' => $this->resource->kvadratura,
+            'brojSoba' => $this->resource->brojSoba,
+            'slika' => $this->resource->slika,
+            'property_type' => new PropertyTypeResource($this->resource->property_type),
         ];
     }
 }
