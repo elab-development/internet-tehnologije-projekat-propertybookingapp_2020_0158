@@ -41,6 +41,11 @@
     margin-bottom: 16px;
     width: 40%; 
     box-sizing: border-box;
+    opacity: 70%;
+    transition: opacity 0.3s ease; 
+    transition: background-color 0.3s ease; 
+    transition: box-shadow 0.3s ease; 
+    transition: translate 0.9s ease;
   }
   
   .agent-name {
@@ -60,6 +65,6 @@
   .agent-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
-    opacity: 85%;
+    color: antiquewhite;
+    opacity: 95%;
   }

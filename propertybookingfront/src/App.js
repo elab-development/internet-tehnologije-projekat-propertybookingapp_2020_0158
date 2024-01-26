@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import WelcomePage from './components/Welcome/WelcomePage';
 import Agents from './components/Agents/Agents';
+import Properties from './components/Properties/Properties';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Route 
           path="/agents" 
           element={<Agents/>} 
+        />
+        <Route 
+          path="/properties" 
+          element={<Properties/>} 
         />
           
         </Routes>
