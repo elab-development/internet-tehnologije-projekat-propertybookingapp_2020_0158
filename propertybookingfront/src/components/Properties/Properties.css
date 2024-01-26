@@ -1,0 +1,118 @@
+
+  .properties-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background-image: url('https://media.cntraveller.com/photos/611bee6a7048754865719bae/master/pass/8.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 600px;
+  }
+
+  .properties-title {
+    color: #634e3b;
+    height: 50px;
+    font-size: 24px;
+    margin-bottom: 40px;
+    background-color: #D1C8B8;
+    width: 50%;
+    margin-left: 450px;
+    border-radius: 8px;
+    opacity: 90%;
+
+
+  }
+  
+  .properties-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 92%; 
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .property-item {
+    width: 400px; 
+    height: 300px; 
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .filter-form {
+    margin-bottom: 20px;
+    width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+  }
+  
+  .filter-form label {
+    display: block;
+    font-weight: bold;
+    background-color: #ccc;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: #634e3b;
+
+  }
+  
+  .filter-form input,
+  .filter-form select {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .filter-form button {
+    font-size: 16px;
+    height: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #95775A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .filter-form button:hover {
+    background-color: #B37840;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #95775A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .pagination button:hover {
+    background-color: #B37840;
+  }
+  
+  .pagination button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
