@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './WelcomePage.css';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const WelcomePage = () => {
   const [countries, setCountries] = useState([]);
@@ -42,6 +43,7 @@ const WelcomePage = () => {
         </ul>
       </div>
     </div>
+    <Footer/>
     </>
   );
 };
