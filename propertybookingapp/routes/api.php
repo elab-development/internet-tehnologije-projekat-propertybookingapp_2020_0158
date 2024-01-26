@@ -30,6 +30,7 @@ Route::get('/properties/brojsoba/{brojSoba}', [PropertyController::class,
 
 Route::get('propertytypes', [PropertyTypeController::class, 'index']); 
 
+Route::get('agents', [AgentController::class, 'index']); 
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login', [AuthController::class, 'login']);

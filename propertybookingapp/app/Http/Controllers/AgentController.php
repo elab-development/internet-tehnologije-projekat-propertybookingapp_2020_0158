@@ -9,6 +9,15 @@ use App\Models\Agent;
 
 class AgentController extends Controller
 {
+
+    public function index()
+    {
+        $agents = Agent::all();
+        return AgentResource::collection($agents);
+    }
+
+
+
     //azuriranje samo adrese agenta
     public function updateAddress(Request $request, $id)
     {
