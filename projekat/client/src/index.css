@@ -1,0 +1,79 @@
+* {
+  font-family: "Zen Maru Gothic", serif;
+  }
+
+  body, .ant-typography {
+    font-family: "Zen Maru Gothic", serif;
+    background-color: white;
+  }
+  
+  .css-1sxo9kh{
+    background-color: white !important;
+  }
+
+
+  a {
+    text-decoration: none !important;
+  }
+  
+  .my_profile-bg {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  .my_profile_user-img {
+    border-radius: 100%;
+    margin-left: -64px;
+  }
+  
+  .property_details-img {
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .my_profile-bg {
+        border-radius: 15px;
+    }
+  
+    .my_profile_user-img {
+        margin-left: 0px;
+        margin-top: -64px;
+    }
+  
+    .property_details-img {
+        width: 100%;
+        height: auto;
+    }
+  }
+
+
+  .logo {
+    size: 1000px;
+  }
+
+
+  .apexcharts-legend-text {
+    color: white !important;
+  }
+
+  .apexcharts-text tspan{
+    fill: white !important;
+  }
+
+
+
+.my-profile-bg img {
+  width: 500px; /* Adjust the width as needed */
+  height: 250px; /* Maintain aspect ratio */
+} 
+
+
+.full-screen-button {
+  display: none;
+}
+
+.icon-cardboard-circle {
+  display: none;
+}
+
+
