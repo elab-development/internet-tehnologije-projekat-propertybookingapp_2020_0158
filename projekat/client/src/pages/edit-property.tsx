@@ -18,7 +18,7 @@ const EditProperty = () => {
     } = useForm();
 
 
-    //U handleImageChange se definise funkcija za promenu slike za automobil. 
+    //U handleImageChange se definise funkcija za promenu slike za nekretninu. 
   //Ova funkcija prima fajl kao argument, zatim se kreira novi Promise koji koristi FileReader API kako bi se 
   //pretvorio fajl u Data URL, nakon cega se stanje propertyImage azurira sa novim imenom i URL-om.
     const handleImageChange = (file: File) => {
@@ -34,8 +34,8 @@ const EditProperty = () => {
         );
     };
 
-    //U onFinishHandler se definise funkcija koja se poziva kada se formular za kreiranje auta zavrsi. 
-//Prvo se proverava da li je korisnik dodao sliku za automobil. Ako nije, prikazuje se upozorenje
+    //U onFinishHandler se definise funkcija koja se poziva kada se formular za kreiranje nekretnine zavrsi. 
+//Prvo se proverava da li je korisnik dodao sliku za nekretninu. Ako nije, prikazuje se upozorenje
     const onFinishHandler = async (data: FieldValues) => {
         if (!propertyImage.name) return alert("Please upload a property image");
 

@@ -9,7 +9,7 @@ import { SatisfactionBox } from 'components';
  
 
 const AdminHome = () => {
-    {/*za vracanje automobila koristimo ovu kuku */}
+    {/*za vracanje nekretnine koristimo ovu kuku */}
     const {data, isLoading, isError} = useList({
         resource:'properties',
         config: {

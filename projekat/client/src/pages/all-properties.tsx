@@ -25,13 +25,13 @@ const AllProperties = () => {
 
 ///////////ADMIN DEO//////////////////
 
-//authProvider automobil koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
-// Automobil ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
+//authProvider nekretnine koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
+// nekretnine ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
   const authProvider: AuthProvider = {
 
 //login se poziva kada se korisnik uloguje. Ona prima podatke o korisnikovom autentifikacionom token-u kao argument.
 // U ovoj funkciji se proverava da li je autentifikacioni token ispravan i, ako jeste, izdvoji se profileObj koji sadrži 
-//podatke o korisniku. Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira automobil user 
+//podatke o korisniku. Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira nekretnine user 
 //koji se skladišti u localStorage. Ako je korisnik admin, to se takođe označava u localStorage.
     login: async({ credential }: CredentialResponse) => {
       const profileObj = credential ? parseJwt(credential) : null;
@@ -128,7 +128,7 @@ const AllProperties = () => {
   const navigate = useNavigate();
 
 
-//useTable koji vraća automobil sa podacima o tabeli, trenutnoj stranici, broju stranica i opcijama za sortiranje i filtriranje.
+//useTable koji vraća nekretnine sa podacima o tabeli, trenutnoj stranici, broju stranica i opcijama za sortiranje i filtriranje.
 
   const {
     tableQueryResult: {data, isLoading, isError},
@@ -165,7 +165,7 @@ const AllProperties = () => {
     const logicalFilters = filters.flatMap((item) => ('field' in item ? item : []))
 
     return {
-      //currentFilterValues omogućava filtriranje po nazivu auta i tipu imovine.
+      //currentFilterValues omogućava filtriranje po nazivu nekretnine i tipu imovine.
       // Ako filter ne postoji, koristi se podrazumevana vrednost ''.
       title: logicalFilters.find((item) => item.field === 'title')?.value || '',
       propertyType: logicalFilters.find((item) => item.field === 'propertyType')?.value || '',
@@ -221,7 +221,7 @@ const AllProperties = () => {
                       }}
                       style={{ fontFamily:"Zen Maru Gothic", backgroundColor: 'white', borderRadius: '8px', border:'none'}}
                     />
-                    {/* pretraga po tipu auta*/}
+                    {/* pretraga po tipu nekretnine*/}
                     <Select
                       variant="outlined"
                       color="info"
@@ -241,7 +241,7 @@ const AllProperties = () => {
                   }}
                   style={{ backgroundColor: '#7CB9E8', borderRadius: '8px', border:'none', fontFamily: "Zen Maru Gothic", color:"white", fontWeight: "bold"}}
                     >
-                      {/*padajuca lista za tip auta, mapira jedan po jedan i prikazuje u meniju malim slovima*/}
+                      {/*padajuca lista za tip nekretnine, mapira jedan po jedan i prikazuje u meniju malim slovima*/}
                       <MenuItem value="" style={{fontFamily: "Zen Maru Gothic"}}>Sve</MenuItem>
                       {['Stanovi', 'Kuce', 'Apartmani', 'Vikendice', 'Komercijalne Nekretnine', 'Zemljista'].map((type) => (
                           <MenuItem key={type} value={type} style={{fontFamily: "Zen Maru Gothic"}}>{type}</MenuItem>

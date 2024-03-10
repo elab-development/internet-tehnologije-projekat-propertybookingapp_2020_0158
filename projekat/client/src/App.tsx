@@ -60,12 +60,12 @@ axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
 
 function App() {
 
-  //authProvider automobil koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
-// Automobil ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
+  //authProvider nekretnine koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
+// nekretnine ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
 const authProvider: AuthProvider = {
   //login se poziva kada se korisnik uloguje. Ona prima podatke o korisnikovom autentifikacionom token-u kao argument.
 // U ovoj funkciji se proverava da li je autentifikacioni token ispravan i, ako jeste, izdvoji se profileObj koji sadrži 
-//podatke o korisniku. Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira automobil user 
+//podatke o korisniku. Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira nekretnine user 
 //koji se skladišti u localStorage. Ako je korisnik admin, to se takođe označava u localStorage.
 login: async ({ credential }: CredentialResponse) => {
   const profileObj = credential ? parseJwt(credential) : null;

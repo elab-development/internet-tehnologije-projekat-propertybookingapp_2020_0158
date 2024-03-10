@@ -4,10 +4,6 @@ import { useDelete, useGetIdentity, useShow } from "@pankod/refine-core";
 import { useParams, useNavigate } from "@pankod/refine-react-router-v6";
 
 
-
-import  { useState, useEffect } from "react";
-
-
 import {
     ChatBubble,
     Delete,
@@ -16,7 +12,6 @@ import {
     Place,
 } from "@mui/icons-material";
 
-import { FaStar } from "react-icons/fa6";
 
 import { AuthProvider } from "@pankod/refine-core";
 import { CredentialResponse } from "interfaces/google";
@@ -41,14 +36,14 @@ const PropertyDetails = () => {
 
 
 //////////////////ADMIN/////////////////////
-//authProvider automobil koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
-// Automobil ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
+//authProvider nekretnine koji se koristi u React aplikacijama za upravljanje autentikacijom korisnika.
+// nekretnine ima pet funkcija: login, logout, checkError, checkAuth i getUserIdentity.
     const authProvider: AuthProvider = {
         
 //login se poziva kada se korisnik uloguje. Ona prima podatke o korisnikovom autentifikacionom token-u kao argument.
 // U ovoj funkciji se proverava da li je autentifikacioni token ispravan i, ako jeste, izdvoji se profileObj koji sadrži 
 //podatke o korisniku. 
-//Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira automobil user 
+//Zatim se korisnikov name, email i avatar sačuvaju u bazi podataka, a zatim se kreira nekretnine user 
 //koji se skladišti u localStorage. Ako je korisnik admin, to se takođe označava u localStorage.
         login: async({ credential }: CredentialResponse) => {
           const profileObj = credential ? parseJwt(credential) : null;
@@ -164,10 +159,10 @@ const PropertyDetails = () => {
    
 
 
-    {/*za brisanje auta*/}
-    //handleDeleteProperty() funkcija se poziva kada korisnik klikne na dugme za brisanje auta.
+    {/*za brisanje nekretnine*/}
+    //handleDeleteProperty() funkcija se poziva kada korisnik klikne na dugme za brisanje nekretnine.
     // U ovoj funkciji se prikazuje prozor za potvrdu brisanja, a ako korisnik potvrdi brisanje, poziva 
-    //se funkcija mutate() koja briše automobil. U slučaju uspešnog brisanja, korisnik se preusmerava na stranicu sa listom auta.
+    //se funkcija mutate() koja briše nekretnine. U slučaju uspešnog brisanja, korisnik se preusmerava na stranicu sa listom nekretnine.
     const handleDeleteProperty = () => {
         const response = confirm(
             "Are you sure you want to delete this property?",
@@ -234,7 +229,7 @@ const PropertyDetails = () => {
                                 fontFamily="Zen Maru Gothic"
                             >
                                 Tip Nekretnine: {
-                                (PropertyDetails.propertyType === "STanovi")?
+                                (PropertyDetails.propertyType === "Stanovi")?
                                 "Stan"
                                 :
                                 (PropertyDetails.propertyType === "Kuce")?

@@ -3,7 +3,7 @@ import express from 'express';
 //funkcije iz kontrolera
 import { createProperty,deleteProperty,getAllProperties,getPropertyDetails,updateProperty} from '../controllers/property.controller.js';
 
-//Kreiranje novog router auta koji se koristi za definisanje novih ruta
+//Kreiranje novog router nekretnine koji se koristi za definisanje novih ruta
 const router = express.Router();
 
 router.route('/').get(getAllProperties);

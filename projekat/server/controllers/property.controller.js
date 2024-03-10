@@ -27,12 +27,12 @@ const getAllProperties = async (req, res) => {
     //kasnije se koristi za definisanje različitih parametara za pretraživanje baze podataka
     const query = {};
 
-    //proverava se "propertyType" iz zahteva i ako je definisan, dodaje se u "query" automobil kao parametar
+    //proverava se "propertyType" iz zahteva i ako je definisan, dodaje se u "query" nekretnine kao parametar
     if(propertyType !== ""){
         query.propertyType = propertyType;
     }
 
-    // Pronađeni automobili se dodaju u "query" automobil
+    // Pronađeni nekretninei se dodaju u "query" nekretnine
     if(title_like){
         query.title = {$regex: title_like, $options: 'i' };
     }
@@ -63,12 +63,12 @@ const getAllProperties = async (req, res) => {
 const getPropertyDetails = async (req, res) => {
     //iz parametara zahteva se izdvaja id
     const { id } = req.params;
-    //da se nadje taj automobil sa tim id-em
+    //da se nadje taj nekretnine sa tim id-em
     const propertyExists = await Property.findOne({
         _id: id
-    }).populate('creator',); //da se prikaze i kreator auta
+    }).populate('creator',); //da se prikaze i kreator nekretnine
 
-    //salje odgovor sa detaljima auta
+    //salje odgovor sa detaljima nekretnine
     if(propertyExists) { res.status(200).json(propertyExists) 
     }else{
         res.status(404).json({ message: 'Property not found'});
@@ -78,7 +78,7 @@ const getPropertyDetails = async (req, res) => {
 const createProperty = async (req, res) => {
 
     try {
-        //req.body sadrži parametre za kreiranje auta koje je korisnik poslao preko HTTP zahteva.
+        //req.body sadrži parametre za kreiranje nekretnine koje je korisnik poslao preko HTTP zahteva.
         const {title, description, propertyType, location, price, photo, email, image360} = req.body;
 
     //zapocinje se nova transakcija u bazi podataka
@@ -90,7 +90,7 @@ const createProperty = async (req, res) => {
 
     if(!user) throw new Error('User not found');
 
-    //servis da bi se slika auta postavila na mrežu i dobila javni URL.
+    //servis da bi se slika nekretnine postavila na mrežu i dobila javni URL.
     const photoUrl = await cloudinary.uploader.upload(photo);
 
     //novu instanca Property modela, koja se zatim dodaje u bazu podataka. 
@@ -105,7 +105,7 @@ const createProperty = async (req, res) => {
         image360
 
     });
-    // ID novog auta u listu svih koncerata korisnika. Zatim se ovo ažuriranje čuva u bazi podataka.
+    // ID novog nekretnine u listu svih koncerata korisnika. Zatim se ovo ažuriranje čuva u bazi podataka.
     user.allProperties.push(newProperty._id);
     await user.save({ session });
 
@@ -120,7 +120,7 @@ const createProperty = async (req, res) => {
    
 
 };
-//editovanje auta
+//editovanje nekretnine
 const updateProperty = async (req, res) => {
     try {
         //koji se menja
@@ -151,16 +151,16 @@ const updateProperty = async (req, res) => {
 };
 
 
-//brisanje auta
+//brisanje nekretnine
 const deleteProperty = async (req, res) => {
     try {
-        //koji automobil se brise
+        //koji nekretnine se brise
         const { id } = req.params;
 
-        //koristi za pronalaženje auta u bazi
+        //koristi za pronalaženje nekretnine u bazi
         const PropertyToDelete = await Property.findById({
             _id: id
-        }).populate('creator'); //učitali podaci korisnika koji je kreirao automobil
+        }).populate('creator'); //učitali podaci korisnika koji je kreirao nekretnine
 
         if(!PropertyToDelete) throw new Error('Property not found'); //ako ne postoji
 
@@ -168,12 +168,12 @@ const deleteProperty = async (req, res) => {
         const session = await mongoose.startSession();
         session.startTransaction();
 
-        //Uklanjanje auta iz baze podataka koristeći remove funkciju 
+        //Uklanjanje nekretnine iz baze podataka koristeći remove funkciju 
         PropertyToDelete.remove({session});
-        //uklanja referenca na automobil kod korisnika sa pull funkcijom
+        //uklanja referenca na nekretnine kod korisnika sa pull funkcijom
         PropertyToDelete.creator.allProperties.pull(PropertyToDelete);
 
-        //Ažuriranje korisničkog auta u bazi podataka kako bi se uklonila referenca
+        //Ažuriranje korisničkog nekretnine u bazi podataka kako bi se uklonila referenca
         await PropertyToDelete.creator.save({session});
         await session.commitTransaction();
 

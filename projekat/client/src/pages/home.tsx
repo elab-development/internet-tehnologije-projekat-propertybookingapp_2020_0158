@@ -13,7 +13,7 @@ import{
  
 
 const Home = () => {
-    {/*za vracanje auta koristimo ovu kuku */}
+    {/*za vracanje nekretnine koristimo ovu kuku */}
     const {data, isLoading, isError} = useList({
         resource:'properties',
         config: {
@@ -25,16 +25,6 @@ const Home = () => {
 
     })
 
-
-    // State to hold the total number of properties
-    const [totalProperties, setTotalProperties] = useState<number>(0);
-
-    useEffect(() => {
-        // Calculate the total number of properties
-        if (data) {
-            setTotalProperties(data.total);
-        }
-    }, [data]);
 
 //koristi se opcionalni operator ?. da bi se izbeglo pristupanje undefined vrednostima 
 //u objektu data. Ako data ne postoji, uzmemo prazan niz umesto undefined vrednosti.

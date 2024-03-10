@@ -3,7 +3,7 @@ import express from 'express';
 //funkcije iz kontrolera
 import { createUser, getAllUsers, getUserInfoByID} from '../controllers/user.controller.js';
 
-//Kreiranje novog router auta koji se koristi za definisanje novih ruta
+//Kreiranje novog routera koji se koristi za definisanje novih ruta
 const router = express.Router();
 
 router.route('/').get(getAllUsers);

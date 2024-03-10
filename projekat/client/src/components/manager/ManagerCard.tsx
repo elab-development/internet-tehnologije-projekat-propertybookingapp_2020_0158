@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 import { useGetIdentity } from "@pankod/refine-core";
-import { Box, Stack, Typography, color } from "@pankod/refine-mui";
+import { Box, Stack, Typography } from "@pankod/refine-mui";
 import { Link } from "@pankod/refine-react-router-v6";
 
 import { ManagerCardProp, InfoBarProps } from "interfaces/manager";
@@ -32,7 +32,7 @@ const isLink = (str: string): boolean => {
 
 
 
-//Komponenta InfoBar prikazuje ikonu i tekst. Prima automobil InfoBarProps koji ima dva svojstva: icon i name. 
+//Komponenta InfoBar prikazuje ikonu i tekst. Prima InfoBarProps koji ima dva svojstva: icon i name. 
 //icon prikazuje ikonu koja se prosleđuje, a name prikazuje tekst. 
 const InfoBar = ({ icon, name }: InfoBarProps) => (
     <Stack
